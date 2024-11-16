@@ -4,7 +4,7 @@ import { useStore } from 'effector-react';
 import { Button } from '../../components/Button';
 import {
   DESTINATION_NETWORK_ID,
-  numberWithCommas, SOURCE_NETWORK_ID, CHAIN_TO_NAME, shortenAddress,
+  numberWithCommas, SOURCE_NETWORK_ID, CHAIN_TO_NAME, shortenAddress, goToTxDestination, goToTxSource,
 } from '../../common';
 import {
   currentAccount$,
@@ -147,7 +147,7 @@ export const Bridge = () => {
     ) : (
       <Button onClick={() => {
         setStatus('bridged');
-        // goToTxSourceEtherscan(txHashBridge);
+        goToTxSource(txHashBridge);
         setTxHashBridge(null);
       }}>
         SEE TX ON BLOCKSCOUT
@@ -182,7 +182,7 @@ export const Bridge = () => {
     ) : (
       <Button onClick={() => {
         setStatus('claimed');
-        // goToTxDestinationEtherscan(txHashClaim);
+        goToTxDestination(txHashClaim);
         setTxHashClaim(null);
       }}>
         SEE TX ON BLOCKSCOUT

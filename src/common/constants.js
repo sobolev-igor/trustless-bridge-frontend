@@ -1,5 +1,5 @@
-export const DESTINATION_ETHERSCAN_TX_URL = process.env.DESTINATION_ETHERSCAN_TX_URL;
-export const SOURCE_ETHERSCAN_TX_URL = process.env.SOURCE_ETHERSCAN_TX_URL;
+export const DESTINATION_TX_URL = process.env.DESTINATION_TX_URL;
+export const SOURCE_TX_URL = process.env.SOURCE_TX_URL;
 export const SOURCE_NETWORK_ID = process.env.SOURCE_NETWORK_ID;
 export const DESTINATION_NETWORK_ID = process.env.DESTINATION_NETWORK_ID;
 export const INFURA_ID = process.env.INFURA_ID;
@@ -15,9 +15,9 @@ export const DESTINATION_BRIDGE_ADDRESS = '0xb57cC87294c4640F3bC8a8A8Dfd412272F3
 //   NOT_ENOUGH_BALANCE: 'Not enough balance',
 // };
 
-export const goToTxSourceEtherscan = (txHash) =>
-  window.open(SOURCE_ETHERSCAN_TX_URL + txHash, '_blank');
+export const goToTxSource = (txHash) =>
+  window.open(SOURCE_TX_URL + txHash, '_blank');
 
 
-export const goToTxDestinationEtherscan = (txHash) =>
-  window.open(DESTINATION_ETHERSCAN_TX_URL + txHash, '_blank');
+export const goToTxDestination = (txHash) =>
+  window.open(DESTINATION_TX_URL + txHash, '_blank');
