@@ -35,7 +35,7 @@ export const Block = styled.div`
 
 export const BlackBlock = styled(Block)`
   background: ${({ theme }) => theme.colors.black};
-  min-height: calc(80vh - 60px);
+  min-height: calc(80vh - 50vh);
   padding-bottom: 80px;
 `;
 
@@ -50,13 +50,13 @@ export const GradientLine = styled(Block)`
 export const FirstGradientLine = styled(Block)`
   background: ${({ theme, color }) =>
     color ? color : theme.gradientColors.red};
-  height: 60vh;
+  height: 50vh;
   justify-content: space-evenly;
   align-content: center;
   flex-direction: row;
 
   @media (max-width: 1000px) {
-    min-height: 400px;
+    min-height: 350px;
   }
 `;
 

@@ -18,7 +18,7 @@ export const Landing = () => {
         </Heading1>
       </FirstGradientLine>
       <BlackBlock>
-        <Heading2 style={{ marginTop: '210px' }}>ABOUT TRUSTLESS BRIDGE</Heading2>
+        <Heading2 style={{ marginTop: '150px' }}>ABOUT TRUSTLESS BRIDGE</Heading2>
         <Article>
           Bridge that you don't need to trust to.
         </Article>

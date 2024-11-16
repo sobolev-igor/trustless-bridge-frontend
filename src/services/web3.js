@@ -33,11 +33,11 @@ export function greaterThan(a, b) {
   return Web3.utils.toBN(a).gte(Web3.utils.toBN(b));
 }
 
-export function getProofFromReceipt(web3Instance, receipt) {
-  console.log('getting proof for receipt:', receipt);
-
+export function getProofFromReceipt(web3Instance, receipt, value, setValue) {
   // send post request to get proof
-  getProofFromNode(web3Instance, receipt.blockNumber, receipt.events[0].raw.topics[1]);
+  getProofFromNode(web3Instance, receipt.blockNumber, receipt.events[1].raw.topics[1]);
+
+  setValue(Web3.utils.toBN(value).sub(Web3.utils.toBN(receipt.events[1].raw.topics[2])).toString());
 }
 
 export function sendBridgeTx(
@@ -55,7 +55,7 @@ export function sendBridgeTx(
     SOURCE_BRIDGE_ADDRESS,
   );
   contract.methods
-    .depositEth(recipient, chainId)
+    .depositEth(recipient, chainId, Web3.utils.randomHex(32))
     .send({
       from: account,
       value: amount,
@@ -97,9 +97,6 @@ export function getProofFromNode(
   blockNumber,
   depositId,
 ) {
-  console.log('getting proof for receipt and storage key');
-  console.log('storage key:');
-  console.log(Web3.utils.keccak256(depositId + '0000000000000000000000000000000000000000000000000000000000000004'));
   web3Instance.eth.getProof(
     SOURCE_BRIDGE_ADDRESS,
     [Web3.utils.keccak256(depositId + '0000000000000000000000000000000000000000000000000000000000000004')],

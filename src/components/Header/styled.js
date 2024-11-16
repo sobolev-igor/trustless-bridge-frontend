@@ -38,7 +38,7 @@ export const PageLink = styled.div`
     active ? theme.colors.cyan : theme.colors.black};
   color: ${({ theme, active }) =>
     active ? theme.colors.black : theme.colors.white};
-  width: ${({ logo }) => (logo ? '350px' : '190px')};
+  width: ${({ logo }) => (logo ? '300px' : '190px')};
   height: 60px;
   &:hover {
     color: ${({ theme, active }) =>
