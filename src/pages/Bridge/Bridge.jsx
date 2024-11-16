@@ -4,7 +4,12 @@ import { useStore } from 'effector-react';
 import { Button } from '../../components/Button';
 import {
   DESTINATION_NETWORK_ID,
-  numberWithCommas, SOURCE_NETWORK_ID, CHAIN_TO_NAME, shortenAddress, goToTxDestination, goToTxSource,
+  numberWithCommas,
+  SOURCE_NETWORK_ID,
+  CHAIN_TO_NAME,
+  shortenAddress,
+  goToTxDestination,
+  goToTxSource,
 } from '../../common';
 import {
   currentAccount$,
@@ -45,21 +50,6 @@ export const Bridge = () => {
   React.useEffect(() => {
     setActivePage([false, true]);
   }, []);
-
-  // React.useEffect(() => {
-  //   const handleProviderAnnouncement = ({ detail }) => {
-  //     if (detail.info.rdns === "io.metamask") {
-  //       setProvider(detail.provider);
-  //     }
-  //   };
-  //
-  //   window.addEventListener("eip6963:announceProvider", handleProviderAnnouncement);
-  //   window.dispatchEvent(new Event("eip6963:requestProvider"));
-  //
-  //   return () => {
-  //     window.removeEventListener("eip6963:announceProvider", handleProviderAnnouncement);
-  //   };
-  // }, []);
 
   const web3Instance = useStore(web3Instance$);
   const account = useStore(currentAccount$);
@@ -193,7 +183,13 @@ export const Bridge = () => {
   ]);
 
   const claimButton = React.useMemo(() => {
-    return txHashClaim === null ? (
+    return balance === '0' ? (
+      <Button onClick={() => {
+        window.open('https://t.me/+PDnffcaqW-5mNDYy', '_blank');
+      }}>
+        GO TO FAUCET
+      </Button>
+    ) : txHashClaim === null ? (
       <Button
         onClick={handleClaimClick}>
         CLAIM
@@ -211,6 +207,7 @@ export const Bridge = () => {
     txHashClaim,
     handleClaimClick,
     setTxHashClaim,
+    balance,
   ]);
 
   const returnButton = React.useMemo(() => {
@@ -317,6 +314,11 @@ export const Bridge = () => {
                         color={theme.colors.gray}>
                       0 ETH
                     </Heading3>
+                    <Button onClick={() => {
+                      window.open('https://faucet.quicknode.com/optimism/sepolia', '_blank');
+                    }}>
+                      GO TO FAUCET
+                    </Button>
                   </FrameContainer>
                 </Container>
             );
