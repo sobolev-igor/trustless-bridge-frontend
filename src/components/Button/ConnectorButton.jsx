@@ -9,6 +9,7 @@ import {
   setProvider, setAccounts, setChainId,
 } from '../../services';
 import Web3 from "web3";
+import {CHAIN_TO_CONFIG} from "../../common";
 
 export const ConnectorButton = ({ children }) => {
   const chainId = useStore(chainId$);
@@ -33,9 +34,9 @@ export const ConnectorButton = ({ children }) => {
 
   async function handleEthereumClick(provider, id) {
     await provider.request({
-      method: 'wallet_switchEthereumChain',
-      params: [{chainId: Web3.utils.numberToHex(id)}], // chainId must be in hexadecimal numbers
-    })
+      method: 'wallet_addEthereumChain',
+      params: CHAIN_TO_CONFIG[id], // chainId must be in hexadecimal numbers
+    });
     await provider.request({
       method: 'wallet_switchEthereumChain',
       params: [{chainId: Web3.utils.numberToHex(id)}], // chainId must be in hexadecimal numbers

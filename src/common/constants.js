@@ -13,7 +13,7 @@ export const CHAIN_TO_CONFIG = {
       chainId: "0xaa37dc",
       chainName: "OP Sepolia",
       rpcUrls: [
-        "https://optimism-sepolia.drpc.org"
+        "https://sepolia.optimism.io"
       ],
       iconUrls: [],
       nativeCurrency: {
