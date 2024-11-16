@@ -1,0 +1,6 @@
+{
+  "contractName": "SourceBridge",
+  "abi": [
+    {"type":"function","name":"depositErc20","inputs":[{"name":"_token","type":"address","internalType":"contract IERC20"},{"name":"_amount","type":"uint256","internalType":"uint256"},{"name":"_receiver","type":"address","internalType":"address"},{"name":"_chainId","type":"uint256","internalType":"uint256"}],"outputs":[{"name":"depositId","type":"uint256","internalType":"uint256"}],"stateMutability":"nonpayable"},
+    {"type":"function","name":"depositEth","inputs":[{"name":"_receiver","type":"address","internalType":"address"},{"name":"_chainId","type":"uint256","internalType":"uint256"}],"outputs":[{"name":"depositId","type":"uint256","internalType":"uint256"}],"stateMutability":"payable"}]
+}

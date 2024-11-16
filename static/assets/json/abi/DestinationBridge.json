@@ -1,0 +1,6 @@
+{
+  "contractName": "DestinationBridge",
+  "abi": [
+    {"type":"function","name":"claimEth","inputs":[{"name":"_receiver","type":"address","internalType":"address"},{"name":"_amount","type":"uint256","internalType":"uint256"},{"name":"_l1Slot","type":"uint256","internalType":"uint256"},{"name":"_proof","type":"bytes","internalType":"bytes"},{"name":"_key","type":"bytes32","internalType":"bytes32"},{"name":"_value","type":"bytes32","internalType":"bytes32"}],"outputs":[],"stateMutability":"nonpayable"}
+  ]
+}
